@@ -1,0 +1,14 @@
+<h1>kifinas Web Radio</h1>
+<div class="media" ng-repeat="chat in chats">
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading">
+                    {{chat.name}}
+                    <div class="pull-right" style="font-size: 12px;">
+                        {{chat.created_at}}
+                    </div>
+                </h4>
+                {{chat.comment}}
+            </div>
+        </div>
+    </div>

@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   before_action :set_chat, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
   respond_to :html, :json
 
   # GET /chats
@@ -36,16 +37,11 @@ class ChatsController < ApplicationController
   # POST /chats.json
   def create
     @chat = Chat.new(chat_params)
-
-    respond_to do |format|
       if @chat.save
-        format.html { redirect_to @chat, notice: 'Chat was successfully created.' }
-        format.json { render :show, status: :created, location: @chat }
+        render json: @chat.as_json, status: :ok
       else
-        format.html { render :new }
-        format.json { render json: @chat.errors, status: :unprocessable_entity }
-      end
-    end
+        render json: {chat: @chas.as_json, status: :no_content}
+      end   
   end
 
   # PATCH/PUT /chats/1

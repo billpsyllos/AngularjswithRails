@@ -11,4 +11,9 @@
                 {{chat.comment}}
             </div>
         </div>
-    </div>
+</div>
+<form name="commentForm"  ng-submit="save()">
+	<input type="text" ng-model="chat.name" placeholder="Add your name"><br>
+	<textarea ng-model="chat.comment" rows="4" style="width: 50%;" placeholder="Add your comment"></textarea><br>
+	<button type="submit" class="btn btn-primary">Post</button>
+</form> 

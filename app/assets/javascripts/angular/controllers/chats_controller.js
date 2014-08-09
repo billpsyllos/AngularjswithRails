@@ -10,6 +10,17 @@ myApp.factory('Chats', ['$resource',function($resource){
 
 myApp.controller('AddController' , ['$scope', 'Chats', '$resource','$http' ,'$location', function($scope, Chats,$resource,$http,$location) {
 	$scope.chats = Chats.query();
+
+	 $scope.save = function () {
+	    if ($scope.commentForm.$valid){
+	      Chats.create({chat: $scope.chat}, function(responce){
+	      	 $scope.chats.push(responce);	        
+	      }, function(error){
+	        console.log(error)
+	      });
+	    }
+  }
+
 }])
 
 myApp.config([

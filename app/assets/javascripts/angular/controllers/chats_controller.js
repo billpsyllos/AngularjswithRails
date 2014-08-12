@@ -14,7 +14,8 @@ myApp.controller('AddController' , ['$scope', 'Chats', '$resource','$http' ,'$lo
 	 $scope.save = function () {
 	    if ($scope.commentForm.$valid){
 	      Chats.create({chat: $scope.chat}, function(responce){
-	      	 $scope.chats.push(responce);	        
+	      	 $scope.chats.push(responce);
+	      	 $scope.chat.comment = "" ; 	        
 	      }, function(error){
 	        console.log(error)
 	      });

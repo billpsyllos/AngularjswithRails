@@ -1,19 +1,37 @@
 <h1>kifinas Web Radio</h1>
-<div class="media" ng-repeat="chat in chats">
-        <div class="media">
-            <div class="media-body">
-                <h4 class="media-heading">
-                    {{chat.name}}
-                    <div class="pull-right" style="font-size: 12px;">
-                        {{chat.created_at}}
-                    </div>
-                </h4>
-                {{chat.comment}}
-            </div>
-        </div>
+<div id="movId" name="movId" align=center>
+	<object id="MediaPlayer1" classid="CLSID:22D6F312-B0F6-11D0-94AB-0080C74C7E95" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,0,02,902" standby="Loading Microsoft Windows Media Player components..." type="application/x-oleobject" width="400" height="300">
+	  <param id="FileName" name="FileName" value="">
+	  <param name="animationatStart" value="true">
+	  <param name="transparentatStart" value="true">
+	  <param name="autoStart" value="true">
+	  <param name="showControls" value="true">
+	  <param name="fullScreen" value="false">
+	 <embed src="http://myradiostream.com/26/4316.asx" type="application/x-mplayer2" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/" name="MediaPlayer" autostart="1" showcontrols="1" width="400" height="45">
+	</object>
 </div>
-<form name="commentForm"  ng-submit="save()">
-	<input type="text" ng-model="chat.name" placeholder="Add your name"><br>
-	<textarea ng-model="chat.comment" rows="4" style="width: 50%;" placeholder="Add your comment"></textarea><br>
-	<button type="submit" class="btn btn-primary">Post</button>
-</form> 
+  
+
+<div class="chatbox">
+	<div class="media" ng-repeat="chat in chats | orderBy: '-created_at'">
+	        <div class="media">
+	            <div class="media-body">
+	                <h4 class="media-heading">
+	                    {{chat.name}}
+	                    <div class="pull-right" style="font-size: 12px;">
+	                        {{chat.created_at | date:'dd/MM/yyyy @ h:mma'}}
+	                    </div>
+	                </h4>
+	                {{chat.comment}}
+	                <a ng-click="destroy($index)" href=""><i class="icon-trash"></i></a>
+	            </div>
+	        </div>
+	</div>
+</div>
+<div class="form">
+	<form name="commentForm"  ng-submit="save()" id="kifinasForm">
+		<input type="text" ng-model="chat.name" placeholder="Add your name"><br>
+		<textarea ng-model="chat.comment" rows="4" style="width: 50%;" placeholder="Add your comment"></textarea><br>
+		<button type="submit" class="btn btn-primary">Post</button>
+	</form> 
+</div>

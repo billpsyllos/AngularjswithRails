@@ -16,4 +16,33 @@
 
 body{
 	background-image:url('kifinas.jpeg');
+	font-family: monospace,Verdana,icon,caption;
+}
+.chatbox{
+	background-color: #DEBC71;
+	 overflow: scroll;
+	 height: 300px;
+	 width:50%;
+	 color:white;
+	 margin-left:auto;
+	  margin-right:auto;
+}
+
+.media{
+	padding: 10px;
+	border-bottom: 1px dotted;
+}
+h1 {
+	 margin-left:auto;
+	 margin-right:auto;
+	 width:50%;
+}
+.form{
+	margin-top: 35px;
+	
+}
+#kifinasForm{
+	margin-left:auto;
+	margin-right:auto;
+	width: 50%;
 }
